@@ -1,20 +1,17 @@
 package com.doubtnut.amateur.core.di.module
 
+import com.doubtnut.amateur.core.di.scope.ActivityScope
+import com.doubtnut.amateur.newsapp.news.NewsActivity
+import com.doubtnut.amateur.newsapp.news.di.NewsModule
+import com.doubtnut.amateur.newsapp.news.di.NewsViewModelModule
 import dagger.Module
+import dagger.android.ContributesAndroidInjector
 
 @Module
 abstract class ActivityInjectorModule {
-/*
-    @ActivityScope
-    @ContributesAndroidInjector(modules = [MainActivityModule::class])
-    abstract fun bindMainActivity(): MainActivity
-
-    @ActivityScope
-    @ContributesAndroidInjector(modules = [IronManModule::class, IronManViewModelModule::class, EmployeeModule::class])
-    abstract fun bindIronManActivity(): IronManActivity
-
 
     @ActivityScope
     @ContributesAndroidInjector(modules = [NewsModule::class, NewsViewModelModule::class])
-    abstract fun bindNewsActivity(): NewsActivity*/
+    abstract fun bindNewsActivity(): NewsActivity
+
 }
