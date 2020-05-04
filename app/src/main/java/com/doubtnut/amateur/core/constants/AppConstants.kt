@@ -1,4 +1,4 @@
-package com.ixigo.androidchallengcharurani.core.constants
+package com.doubtnut.amateur.core.constants
 
 object AppConstants{
     val NETWORK_CONNECTION_TIMEOUT = 30L // 30 sec

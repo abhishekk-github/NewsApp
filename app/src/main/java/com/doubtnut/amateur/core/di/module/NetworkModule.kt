@@ -2,7 +2,7 @@ package com.doubtnut.amateur.core.di.module
 
 import android.content.Context
 import com.doubtnut.amateur.newsapp.BuildConfig
-import com.ixigo.androidchallengcharurani.core.constants.AppConstants
+import com.doubtnut.amateur.core.constants.AppConstants
 import com.doubtnut.amateur.core.di.scope.ApplicationScope
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import dagger.Module

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.genius.amateur.alpha.core.base
+package com.doubtnut.amateur.core.base
 
 interface BaseView {
 

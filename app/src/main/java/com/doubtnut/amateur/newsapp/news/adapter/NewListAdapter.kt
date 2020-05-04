@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.doubtnut.amateur.newsapp.R
 import com.doubtnut.amateur.newsapp.databinding.NewsItemBinding
 import com.doubtnut.amateur.newsapp.news.model.Article
-import com.genius.amateur.alpha.core.base.BaseAdapter
+import com.doubtnut.amateur.core.base.BaseAdapter
 
 class NewListAdapter(
     private var articleList: List<Article>,

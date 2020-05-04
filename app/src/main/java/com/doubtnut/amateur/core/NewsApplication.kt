@@ -12,20 +12,15 @@ class NewsApplication : Application(), HasAndroidInjector {
     @Inject
    lateinit var activityDispatchingAndroidInjector: DispatchingAndroidInjector<Any>
 
-
     override fun onCreate() {
-
         DaggerApplicationComponent.builder()
             .application(this)
             .build()
             .inject(this)
         super.onCreate()
-
-
     }
 
     override fun androidInjector(): DispatchingAndroidInjector<Any> {
         return activityDispatchingAndroidInjector;
     }
-
 }

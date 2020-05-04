@@ -1,4 +1,4 @@
-package com.genius.amateur.alpha.core.base
+package com.doubtnut.amateur.core.base
 
 import androidx.recyclerview.widget.RecyclerView
 

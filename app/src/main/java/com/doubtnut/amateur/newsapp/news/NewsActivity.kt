@@ -12,7 +12,7 @@ import com.doubtnut.amateur.newsapp.news.adapter.RecyclerViewClickListener
 import com.doubtnut.amateur.newsapp.news.model.Article
 import com.doubtnut.amateur.newsapp.news.model.NewsData
 import com.doubtnut.amateur.newsapp.news.viewmodel.NewsViewModel
-import com.genius.amateur.alpha.core.base.BaseActivity
+import com.doubtnut.amateur.core.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_news.*
 
 class NewsActivity : BaseActivity<NewsViewModel>(), RecyclerViewClickListener {
