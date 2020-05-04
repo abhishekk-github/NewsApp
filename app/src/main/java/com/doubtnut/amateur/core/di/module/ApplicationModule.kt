@@ -2,8 +2,10 @@ package com.doubtnut.amateur.core.di.module
 
 import android.app.Application
 import android.content.Context
+import androidx.room.Room
 import com.doubtnut.amateur.core.NewsApplication
 import com.doubtnut.amateur.core.di.scope.ApplicationScope
+import com.doubtnut.amateur.newsapp.news.db.ArticleDatabase
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named
@@ -22,5 +24,12 @@ class ApplicationModule() {
     @ApplicationScope
     fun provideApplicationContext(application: NewsApplication): Context {
         return application.applicationContext
+    }
+
+    @Provides
+    @ApplicationScope
+    fun provideArticleDatabase(context: Context): ArticleDatabase {
+        return Room.databaseBuilder(context, ArticleDatabase::class.java, "articles.db")
+            .build()
     }
 }

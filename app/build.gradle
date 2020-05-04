@@ -106,6 +106,9 @@ dependencies {
     testImplementation "junit:junit:$rootProject.junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$rootProject.androidTestJunitVersion"
 
-    implementation 'com.github.bumptech.glide:glide:4.10.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
+    implementation "com.github.bumptech.glide:glide:$rootProject.glide"
+    annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.glide"
+
+    implementation "androidx.room:room-runtime:$rootProject.room"
+    kapt "androidx.room:room-compiler:$rootProject.room"
 }
