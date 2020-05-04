@@ -2,24 +2,29 @@ package com.doubtnut.amateur.newsapp.news.model
 
 
 import androidx.annotation.Keep
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 @Keep
+@Entity(tableName = "articles")
 data class Article(
     @SerializedName("author")
-    val author: String,
+    val author: String?,
     @SerializedName("content")
-    val content: String,
+    val content: String?,
     @SerializedName("description")
-    val description: String,
+    val description: String?,
     @SerializedName("publishedAt")
-    val publishedAt: String,
-    @SerializedName("source")
-    val source: Source,
+    val publishedAt: String?,
     @SerializedName("title")
-    val title: String,
+    val title: String?,
     @SerializedName("url")
-    val url: String,
+    val url: String?,
     @SerializedName("urlToImage")
-    val urlToImage: String
-)
+    val urlToImage: String?
+) : Serializable {
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0
+}

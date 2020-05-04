@@ -1,9 +1,10 @@
 package com.doubtnut.amateur.newsapp.news
 
+import android.content.Intent
 import android.view.View
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.doubtnut.amateur.core.base.BaseActivity
 import com.doubtnut.amateur.core.ext.toast
 import com.doubtnut.amateur.core.responsewrapper.DataWrapper
 import com.doubtnut.amateur.newsapp.R
@@ -12,8 +13,8 @@ import com.doubtnut.amateur.newsapp.news.adapter.RecyclerViewClickListener
 import com.doubtnut.amateur.newsapp.news.model.Article
 import com.doubtnut.amateur.newsapp.news.model.NewsData
 import com.doubtnut.amateur.newsapp.news.viewmodel.NewsViewModel
-import com.doubtnut.amateur.core.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_news.*
+
 
 class NewsActivity : BaseActivity<NewsViewModel>(), RecyclerViewClickListener {
 
@@ -59,7 +60,9 @@ class NewsActivity : BaseActivity<NewsViewModel>(), RecyclerViewClickListener {
     override fun onRecyclerViewItemClick(view: View, article: Article) {
         when (view.id) {
             R.id.ll_container -> {
-                Toast.makeText(this, "Book Button Clicked", Toast.LENGTH_LONG).show()
+                val mIntent = Intent(this, WebViewActivity::class.java)
+                mIntent.putExtra("URL", article.url)
+                startActivity(mIntent)
             }
         }
     }

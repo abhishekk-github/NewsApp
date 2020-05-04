@@ -5,6 +5,7 @@ import com.doubtnut.amateur.core.responsewrapper.DataWrapper
 import com.doubtnut.amateur.core.responsewrapper.ResultWrapper
 import com.doubtnut.amateur.newsapp.news.model.NewsData
 import com.doubtnut.amateur.newsapp.news.repository.NewsRepository
+import com.doubtnut.amateur.newsapp.news.repository.NewsResult
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -14,7 +15,7 @@ class NewsViewModel @Inject constructor(
 
     private val newsResult by lazy {
         MutableLiveData<ResultWrapper<NewsData>>().also {
-            fetchNewsData("")
+            fetchNewsData()
         }
     }
 
@@ -26,19 +27,36 @@ class NewsViewModel @Inject constructor(
             }
         }
     }
-
-    private fun fetchNewsData(tripId: String) {
-        viewModelScope.launch {
-            val resultWrapper = repository.getNewsAsync(tripId)
+    private val _itineraries: LiveData<NewsResult> = MediatorLiveData<NewsResult>().apply {
+        addSource(repository.articleList) { resultWrapper ->
             if (resultWrapper is ResultWrapper.Result) {
                 if (resultWrapper.data.articles.isEmpty()) {
                     newsResult.value = null
-                }else{
+                } else {
                     newsResult.value = resultWrapper
                 }
             }
 
-            if(resultWrapper is ResultWrapper.Error){
+            if (resultWrapper is ResultWrapper.Error) {
+                newsResult.value = resultWrapper
+            }
+        }
+
+    }
+
+    private fun fetchNewsData() {
+        viewModelScope.launch {
+            repository.getNewsAsync()
+            val resultWrapper = repository.articleList.value
+            if (resultWrapper is ResultWrapper.Result) {
+                if (resultWrapper.data.articles.isEmpty()) {
+                    newsResult.value = null
+                } else {
+                    newsResult.value = resultWrapper
+                }
+            }
+
+            if (resultWrapper is ResultWrapper.Error) {
                 newsResult.value = resultWrapper
             }
 
