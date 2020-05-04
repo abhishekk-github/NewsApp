@@ -1,4 +1,4 @@
-package com.genius.amateur.alpha.core.utils
+package com.doubtnut.amateur.core.utils
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
