@@ -6,7 +6,7 @@
         <import type="android.view.View" />
         <variable
             name="Article"
-            type="com.doubtnut.amateur.newsapp.news.model.Article" />
+            type="com.sample.amateur.newsapp.news.model.Article" />
     </data>
 
     <LinearLayout
